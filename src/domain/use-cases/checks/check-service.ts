@@ -45,7 +45,7 @@ export class CheckService implements CheckServiceUseCase {
       }
 
 
-      const log = new LogEntity(`Service ${url} ok`, LogSeverityLevel.low)
+      const log = new LogEntity({ message: `Service ${url} ok`, level: LogSeverityLevel.low, origin: "check-service.ts" })
       this.logRepository.saveLog(log)
 
       // llamamos a la funcion de exito que me mandaron en la inyeccion de dependencias
@@ -56,7 +56,7 @@ export class CheckService implements CheckServiceUseCase {
     } catch (error) {
 
       const errorMessage = `${url} is not ok. ${error}`
-      const log = new LogEntity(errorMessage, LogSeverityLevel.high)
+      const log = new LogEntity({ message: errorMessage, level: LogSeverityLevel.high, origin: "check-service.ts" })
       this.logRepository.saveLog(log)
 
       this.errorCallback && this.errorCallback(errorMessage)
