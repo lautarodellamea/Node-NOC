@@ -55,7 +55,7 @@ export class EmailService {
       })
 
       // console.log(sentInformation)
-      const log = new LogEntity({ message: `Email sent`, level: LogSeverityLevel.low, origin: "email.service.ts" })
+      // const log = new LogEntity({ message: `Email sent`, level: LogSeverityLevel.low, origin: "email.service.ts" })
       // this.logRepository.saveLog(log)
 
 
@@ -63,7 +63,7 @@ export class EmailService {
       return true
     } catch (error) {
 
-      const log = new LogEntity({ message: `Email not sent`, level: LogSeverityLevel.high, origin: "email.service.ts" })
+      // const log = new LogEntity({ message: `Email not sent`, level: LogSeverityLevel.high, origin: "email.service.ts" })
       // this.logRepository.saveLog(log)
 
       return false
